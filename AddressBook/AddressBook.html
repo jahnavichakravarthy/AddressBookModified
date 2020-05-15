@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>
+            AddressBook
+     </title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="AddressBook.css">
+      </script> 
+  </head>
+  <body>
+    <script src="AddressBook.js"></script>
+      <div id="home-page">
+          <div>
+              <header class="header">
+                  <h2 class="page-title">Address Book</h2>
+              </header>
+          </div>
+          <div>
+              <!-- <nav class="navigation-bar">
+                  <a href="#add" id="add">ADD</a>            
+              </nav>  -->
+          </div>
+          <div class="column" >
+               <h3>CONTACTS</h3>
+               <h2 id="no-contacts">No contacts yet!!!!!</h2>
+               <div class="show-contacts"></div>
+               <input type=button id="add" value='Add'>
+           </div>
+          <div class="column" >
+              <div class="contact-details">
+                <table>
+                    <tr>
+                        <td><b>Name:</b></td>
+                        <td><p id="contact-name"></p></td>
+                    </tr>
+                     <tr>
+                        <td><b>Address:</b></td>
+                        <td><p id="contact-address"></p></td>
+                    </tr>
+                    <tr>
+                        <td><b>PhoneNumber:</b></td>
+                        <td><p id="contact-phonenumber"></p></td>
+                    </tr>
+                </table>
+                <button type="button"id="update" class="button"onclick="updateFormDisplay();" >Update</button>
+                <button type="button"id="delete"class="button"onclick="confirmRemove();" >Delete</button>
+              </div>
+            </div>
+      </div>
+  <div id="form-display">
+    <table>
+          <form>
+                      <!-- <name="myForm" action="#submit" onsubmit="return validateForm()"> --> 
+               <tr>
+                  <div>
+                      <td> <label>Name</label></td>
+                      <td> <input type="text" name="Name"id="txt-name"/></td>
+                 </div>
+               </tr>
+                <tr>
+                  <div>
+                      <td><label>Address</label></td>
+                      <td><input type="text" name="Address"id="txt-address"></td>
+                  </div>
+               </tr>
+                <tr>
+
+                   <div>
+                      <td><label>PhoneNumber</label></td>
+                      <td> <input type="number" name="PhoneNumber"id="txt-phonenumber"></td>
+                   </div> 
+               </tr>
+            </form>
+     </table>
+
+   <button type="button"id="submit"class="button"onclick="addContact();" value="submit">submit</button>
+   <button type="button" id="back"class="button"onclick="mainPage();">back</button>
+   <button type="button"id="update-form"class="button"onclick="update();">Update Contact</button>
+   </div>
+  </body>
+</html>
+
+
+
