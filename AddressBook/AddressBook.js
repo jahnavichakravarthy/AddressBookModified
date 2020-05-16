@@ -1,5 +1,5 @@
 
- window.addEventListener('beforeunload', function (e) {
+window.addEventListener('beforeunload', function (e) {
 	window.localStorage.unloadTime = JSON.stringify(new Date());
 });
 
@@ -9,7 +9,7 @@ window.addEventListener('load', function () {
 	let unloadTime = new Date(JSON.parse(window.localStorage.unloadTime));
 	let refreshTime = loadTime.getTime() - unloadTime.getTime();
 
-	if (refreshTime > 3000) {
+	if (refreshTime > 10000) {
 		window.localStorage.removeItem("Contacts");
 	}
 
@@ -37,11 +37,19 @@ $(document).ready(function () {
 
 
 function onStart() {
-	var listOfContacts = []; //is required for intialaztion
+	//is required for intialaztion
 	$(".contact-details").hide();
 	$("#home-page").show();
 	$("#form-display").hide();
-	localStorage.setItem('Contacts', JSON.stringify(listOfContacts));
+	var contacts = JSON.parse(localStorage.getItem('Contacts'));
+	if (contacts == undefined) {
+		var listOfContacts = [];
+		localStorage.setItem('Contacts', JSON.stringify(listOfContacts));
+	} else {
+		displayContacts();
+	}
+
+
 }
 
 class Contact {
@@ -100,6 +108,7 @@ function reset() {
 function displayContacts() {
 	var contacts = getContacts();
 	if (contacts.length != 0) {
+		$(".show-contacts").show();
 		$(".show-contacts").empty();
 		$("#no-contacts").hide();
 		for (var i = 0; i < contacts.length; i++) {
